@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./main-page.css";
+import "./house.css";
 
 class house extends Component {
     state ={}

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './main-page.css';
 import Header from'./header';
-import featuredHouse from './featured-houses'
+import FeaturedHouse from './featured-houses'
 import React, { Component } from 'react';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div className="contaoner">
         <Header subtitle="Providing houses all over the world"/>
-        <featuredHouse house={this.state.featuredHouse}/>
+        <FeaturedHouse house={this.state.featuredHouse}/>
       </div>
     );
   }
