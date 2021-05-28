@@ -1,38 +1,44 @@
 import React, { Component } from 'react';
 import "./house.css";
+import emailIcon from './Email.png';
+import Inquiry from './inquiry';
+
 
 class house extends Component {
-    state ={}
-    render() {
+    state = { inquiryShown: false }
+
+    inquiryToggle = () => {
+        this.setState({ inquiryShown: !this.state.inquiryShown })
+      }
+
+    render() { 
         const house = this.props.house;
-
-        return( 
-            <div>
-                <div className="row mt-2">
-                <h5 className="col-md-12">{house.country}</h5>
-                </div>
-                <div className="row">
-                <h3 className="col-md-12">{house.address}</h3>
-                </div>
-                <div className="row">
-                <div className="colmd-7">
-                   
-                     <img src={`https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60`}  alt="House"/>
-                     
-                
-                 </div>
-                 <div className="col-md-5">
-                     <p className="price">${house.price}</p>
-                     <p>{house.description}</p>
-                 </div>
-                    
-                
-                
-                </div>
+        const inquiry = this.state.inquiryShown ? <Inquiry house={house} /> : null;
+        return (
+        <div>
+            <div className="row mt-2">
+            <h5 className="col-md-12">{house.country}</h5>
             </div>
-        ) 
-
-        
+            <div className="row">
+            <h3 className="col-md-12">{house.address}</h3>
+            </div>
+            <div className="row">
+            <div className="col-md-7">
+                <img src={`https://images.pexels.com/photos/${house.photo}/pexels-photo-${house.photo}.jpeg?w=600&h=400&auto=compress&cs=tinysrgb`} alt="House" />
+            </div>
+            <div className="col-md-5">
+                <p className="price">${house.price}</p>
+                <p>{house.description}</p>
+                <img src={emailIcon} height="50" alt="inquiry" 
+                    onClick={this.inquiryToggle} />
+                {inquiry}
+            </div>
+            </div>      
+        </div>
+        )
     }
 }
+
 export default house;
+ 
+
