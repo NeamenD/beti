@@ -5,7 +5,7 @@ import FeaturedHouse from './featured-houses'
 import React, { Component } from 'react';
 import HouseFilter from "./house-filter"
 import SearchResults from '../search-results';
-import HouseDetail from './house'
+import HouseDetail from './house';
 
 class App extends Component {
   state = {}
